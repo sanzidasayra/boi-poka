@@ -1,13 +1,15 @@
 import React, { use } from 'react';
 import { FaStarHalfAlt } from "react-icons/fa";
+import { Link } from 'react-router';
 
 const Book = ({singleBook}) => {
     // const data = use(bookPromise);
     // console.log(data);
-    const {bookName, author, image, rating, category, tags, yearOfPublishing
+    const {bookName, author, bookId, image, rating, category, tags, yearOfPublishing
     } = singleBook;
 
     return (
+        <Link to={`/bookDetails/${bookId}`}>
         <div className="card bg-base-100 w-96 shadow-2xl border p-6">
   <figure className='px-24 py-8 bg-gray-400 rounded-xl'>
     <img className='w-[134px] h-[166px]'
@@ -31,6 +33,7 @@ const Book = ({singleBook}) => {
       <div className="badge badge-outline">{rating} <FaStarHalfAlt /></div>
     </div>
 </div>
+        </Link>
     );
 };
 
